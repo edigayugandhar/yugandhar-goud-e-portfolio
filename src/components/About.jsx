@@ -30,7 +30,7 @@ export default function About() {
               <div className="relative overflow-hidden rounded-2xl bg-neutral-900 p-2 shadow-2xl border-4 border-neutral-100">
                 <img
                   src={profileImg}
-                  alt="Yugandhar Goud E portrait"
+                  alt="Yugandhar Goud Ediga portrait"
                   className="w-72 sm:w-80 h-72 sm:h-80 object-cover rounded-xl transition duration-300 group-hover:scale-105"
                 />
               </div>
@@ -65,7 +65,7 @@ export default function About() {
             {/* Education Card */}
             <div className="p-5 rounded-2xl bg-neutral-50 border border-neutral-200">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#ff2a2a]/10 flex items-center justify-center text-[#ff2a2a] font-bold shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-[#ff2a2a]/10 flex items-center justify-center text-[#ff2a2a] font-bold shrink-0 text-xl">
                   🎓
                 </div>
                 <div>
@@ -75,9 +75,17 @@ export default function About() {
                   <p className="text-sm text-neutral-600 mt-0.5">
                     {education.institution}
                   </p>
-                  <p className="text-xs text-neutral-500 mt-1">
-                    Graduation: {education.graduation}
-                  </p>
+                  <div className="flex items-center gap-4 text-xs text-neutral-500 mt-2 font-medium">
+                    <span>Timeline: {education.graduation}</span>
+                    {education.cgpa && (
+                      <>
+                        <span>•</span>
+                        <span className="text-[#ff2a2a] font-semibold">
+                          CGPA: {education.cgpa}
+                        </span>
+                      </>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

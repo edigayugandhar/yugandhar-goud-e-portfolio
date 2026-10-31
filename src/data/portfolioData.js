@@ -1,21 +1,21 @@
 // ============================================================
 // portfolioData.js
-// Central data store for Yugandhar Goud E's Portfolio
+// Central data store for Yugandhar Goud Ediga's Portfolio
 // ============================================================
 
 export const personalInfo = {
-  name: "Yugandhar Goud E",
-  firstName: "Yugandhar Goud E",
-  brandName: "Yugandhar Goud E", // shown in the preloader, navbar and footer
+  name: "Yugandhar Goud Ediga",
+  firstName: "Yugandhar",
+  brandName: "Yugandhar Goud Ediga", // shown in the preloader, navbar and footer
   title: "Java Full Stack Developer",
   location: "Kurnool, Andhra Pradesh",
-  phone: "+91 9966553159",
+  phone: "+91-9966553159",
   emails: {
     primary: "edigayugandhar8@gmail.com",
     secondary: "",
   },
-  summary: "Recent Computer Science graduate who is passionate about building full-stack web applications using Java and modern web technologies.",
-  resumeUrl: "/Yugandhar.pdf", // put the PDF inside /public
+  summary: "Entry-level Software Engineer and aspiring Java Full Stack Developer with knowledge of Core Java, OOP, SQL, JDBC, MySQL, HTML, CSS, and JavaScript. Hands-on experience building web applications and implementing database operations, CRUD functionality, and application workflows.",
+  resumeUrl: "/Yugandhar.pdf", // PDF inside /public
 };
 
 // TAP Academy — the academy you trained with. Used in the footer credit.
@@ -25,15 +25,15 @@ export const academy = {
 };
 
 export const socialLinks = {
-  github: "https://github.com/edigayugandhar",
-  linkedin: "https://www.linkedin.com/in/yugandhar-ediga/",
+  github: "https://github.com/edigayugandhargoud-gif",
+  linkedin: "https://www.linkedin.com/in/edigayugandhargoud",
   instagram: "",
 };
 
 export const heroContent = {
-  greeting: "Hi, I'm Yugandhar Goud E",
+  greeting: "Hi, I'm Yugandhar Goud Ediga",
   titleHighlight: "Java Full Stack Developer",
-  subtitle: "Passionate Java Full Stack Developer building robust web applications, scalable backend APIs, and intuitive user experiences.",
+  subtitle: "Entry-level Software Engineer passionate about building robust web applications, scalable Java backends, and responsive user experiences.",
   ctaPrimary: { text: "View My Work", href: "#projects" },
   ctaSecondary: {
     text: "Contact Me",
@@ -44,9 +44,9 @@ export const heroContent = {
 
 export const aboutContent = {
   heading: "Hello!",
-  // HTML is allowed here (it is rendered with dangerouslySetInnerHTML) — keep it YOUR OWN trusted text.
-  bio: `Hi, my name is <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Yugandhar Goud E</span>, a passionate fresher interested in software development and Java Full Stack Development based in Kurnool, Andhra Pradesh, sharpening my skills through the placement training program at TAP Academy. I have hands-on experience with Java, SQL, HTML, CSS, JavaScript, React, and database technologies through learning and project development. My goal is to become a skilled software developer, grow through real-world experience, and contribute to an innovative engineering team.`,
-  techStack: ["Java", "Spring Boot", "SQL", "React", "JavaScript"],
+  // HTML is allowed here (it is rendered with dangerouslySetInnerHTML)
+  bio: `Hi, my name is <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Yugandhar Goud Ediga</span>, an entry-level Software Engineer and aspiring Java Full Stack Developer based in Andhra Pradesh, sharpening my skills through the placement training program at TAP Academy. I have hands-on experience with Java, SQL, HTML, CSS, JavaScript, React, and database technologies through active learning and project development. My goal is to build scalable, practical web applications, grow through real-world software engineering, and deliver impactful solutions as part of a development team.`,
+  techStack: ["Java", "Spring Boot", "SQL", "JDBC", "React", "JavaScript", "MySQL"],
 };
 
 export const skillsContent = {
@@ -86,7 +86,7 @@ export const technicalSkills = {
         { name: "Java" },
         { name: "SQL" },
         { name: "Python" },
-        { name: "Core Java (OOP, Collections)" },
+        { name: "Core Java (OOP, Exception Handling, Collections)" },
       ],
     },
     {
@@ -109,13 +109,14 @@ export const technicalSkills = {
       ],
     },
     {
-      title: "Web & Tools",
+      title: "Web Development & Tools",
       skills: [
-        { name: "HTML & CSS" },
+        { name: "HTML5 & CSS3" },
         { name: "JavaScript" },
-        { name: "React" },
         { name: "Git & GitHub" },
-        { name: "VS Code & Eclipse" },
+        { name: "Eclipse IDE" },
+        { name: "VS Code" },
+        { name: "MySQL Workbench" },
       ],
     },
   ],
@@ -132,7 +133,13 @@ export const leadershipList = [
     title: "Java Programming Certificate",
     description: "Demonstrated knowledge of Java programming fundamentals and problem-solving through comprehensive assessments.",
     role: "HackerRank",
-    badge: "Problem Solving",
+    badge: "Java Skill",
+  },
+  {
+    title: "Foundations of AI & Machine Learning",
+    description: "Gained foundational knowledge of Artificial Intelligence, Machine Learning concepts, and data-driven problem-solving techniques.",
+    role: "DataValley (2025)",
+    badge: "AI & ML",
   },
 ];
 
@@ -142,7 +149,7 @@ export const softSkillsList = [
   {
     name: "Problem Solving",
     icon: "🧩",
-    desc: "Breaking down complex algorithmic and system logic into clean, structured solutions.",
+    desc: "Practicing algorithms and data structures regularly on LeetCode and GeeksforGeeks.",
   },
   {
     name: "Communication",
@@ -152,12 +159,12 @@ export const softSkillsList = [
   {
     name: "Team Collaboration",
     icon: "🤝",
-    desc: "Working smoothly with peers, contributing to shared repositories, and valuing constructive feedback.",
+    desc: "Working smoothly with peers, contributing to shared repositories, and valuing constructive code reviews.",
   },
   {
     name: "Analytical Thinking",
     icon: "📈",
-    desc: "Evaluating database query performance, schema design, and system scalability.",
+    desc: "Evaluating database query performance, schema normalization, and system scalability.",
   },
 ];
 
@@ -170,7 +177,7 @@ export const projects = [
     description: "Java-based e-commerce platform implementing product browsing, user authentication, shopping cart, and order management using JDBC, Servlets, and MySQL deployed on Apache Tomcat.",
     techTags: ["Java", "JDBC", "MySQL", "JSP", "Servlets", "Apache Tomcat"],
     links: {
-      github: "https://github.com/edigayugandhar/ecommerce-fashion-store",
+      github: "https://github.com/edigayugandhargoud-gif/ecommerce-fashion-store",
       demo: "",
     },
     isFlagship: true,
@@ -180,38 +187,38 @@ export const projects = [
     number: "02",
     badge: null,
     title: "MediCore – Medical Dashboard Platform",
-    description: "Hospital appointment management system featuring role-based access for Admin and Patient modules, REST API integration, and SQLite relational database operations.",
+    description: "Hospital appointment management system featuring role-based access control for Admin and Patient modules, REST API integration, and SQLite database normalization.",
     techTags: ["REST APIs", "JavaScript", "HTML", "CSS", "SQLite"],
     links: {
-      github: "https://github.com/edigayugandhar/medicore-dashboard",
+      github: "https://github.com/edigayugandhargoud-gif/medicore-dashboard",
       demo: "",
     },
     isFlagship: false,
   },
 ];
 
-// Used only by the optional Certificates component (bonus step)
 export const certificates = {
   featured: [
-    { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services", icon: "☁️" },
+    { name: "AWS Certified Cloud Practitioner", issuer: "Amazon Web Services (2025)", icon: "☁️" },
     { name: "Java Programming Certificate", issuer: "HackerRank", icon: "☕" },
+    { name: "Foundations of AI & ML", issuer: "DataValley (2025)", icon: "🤖" },
   ],
-  viewAllUrl: "https://www.linkedin.com/in/yugandhar-ediga/",
+  viewAllUrl: "https://www.linkedin.com/in/edigayugandhargoud",
 };
 
 export const education = {
-  degree: "B.Tech, Computer Science and Engineering (Data Science)",
-  institution: "Rajeev Gandhi Memorial College of Engineering And Technology",
-  cgpa: "",
-  graduation: "2024",
+  degree: "Bachelor of Technology in Data Science",
+  institution: "Rajeev Gandhi Memorial College of Engineering and Technology (RGMCET), Nandyal",
+  cgpa: "7.27 / 10.0",
+  graduation: "2022 – 2026",
   twelfth: "",
   tenth: "",
 };
 
 export const footerContent = {
-  taglines: ["Java Full Stack Developer", "Spring Boot · React · MySQL", "Building Scalable Web Solutions"],
-  credential: "B.Tech, CSE (Data Science)",
-  copyright: `© ${new Date().getFullYear()} Yugandhar Goud E | Built with React`,
+  taglines: ["Java Full Stack Developer", "Spring Boot · React · MySQL", "Building Practical Web Solutions"],
+  credential: "B.Tech in Data Science (RGMCET)",
+  copyright: `© 2026 Yugandhar Goud Ediga | Built with React`,
 };
 
 // EmailJS — read from .env.local (variables must start with VITE_)
