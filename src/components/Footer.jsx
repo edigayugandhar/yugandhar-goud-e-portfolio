@@ -1,6 +1,4 @@
-import { academy, personalInfo, navLinks } from '../data/portfolioData'
-
-const currentYear = new Date().getFullYear()
+import { academy, personalInfo, navLinks, socialLinks, footerContent } from '../data/portfolioData'
 
 export default function Footer() {
   return (
@@ -10,7 +8,7 @@ export default function Footer() {
           {/* Logo / Brand */}
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-[#ff2a2a]" />
-            <span className="font-bold text-lg">{personalInfo.name}</span>
+            <span className="font-bold text-lg">{personalInfo.brandName}</span>
           </div>
 
           {/* Quick Nav Anchors */}
@@ -29,7 +27,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex items-center gap-5 text-sm text-neutral-400">
             <a
-              href={personalInfo.socials.github}
+              href={socialLinks.github}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
@@ -37,7 +35,7 @@ export default function Footer() {
               GitHub
             </a>
             <a
-              href={personalInfo.socials.linkedin}
+              href={socialLinks.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors"
@@ -45,7 +43,7 @@ export default function Footer() {
               LinkedIn
             </a>
             <a
-              href={personalInfo.socials.email}
+              href={`mailto:${personalInfo.emails.primary}`}
               className="hover:text-white transition-colors"
             >
               Email
@@ -53,11 +51,21 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Taglines Strip */}
+        <div className="flex flex-wrap items-center justify-center gap-3 py-4 text-xs text-neutral-400 border-b border-neutral-900/60">
+          {footerContent.taglines.map((tagline, idx) => (
+            <span key={idx} className="flex items-center gap-3">
+              <span>{tagline}</span>
+              {idx < footerContent.taglines.length - 1 && (
+                <span className="text-neutral-700">•</span>
+              )}
+            </span>
+          ))}
+        </div>
+
         {/* Bottom Bar & Mandatory TAP Academy Credit */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-xs text-neutral-500">
-          <div>
-            &copy; {currentYear} {personalInfo.name}. All rights reserved.
-          </div>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-xs text-neutral-500">
+          <div>{footerContent.copyright}</div>
 
           {/* TAP Academy Visible Credit */}
           <div className="flex items-center gap-2">

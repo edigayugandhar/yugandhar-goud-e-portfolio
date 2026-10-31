@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
-import { contactData } from '../data/portfolioData'
+import { personalInfo, emailjsConfig } from '../data/portfolioData'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -17,33 +17,33 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    // Basic validation
+    // Validation
     if (!formData.name || !formData.email || !formData.message) {
-      setStatus({ state: 'error', message: 'Please fill in all required fields.' })
+      setStatus({ state: 'error', message: 'Please complete all required fields.' })
       return
     }
 
     setStatus({ state: 'sending', message: 'Sending your message...' })
 
-    // If EmailJS credentials are default placeholders, gracefully simulate or open mailto
-    if (contactData.serviceId === 'YOUR_SERVICE_ID') {
+    // If EmailJS credentials are placeholder defaults, gracefully simulate reception
+    if (emailjsConfig.serviceId === 'YOUR_EMAILJS_SERVICE_ID') {
       setTimeout(() => {
         setStatus({
           state: 'success',
-          message: 'Thank you! Your message has been received (demo mode).'
+          message: 'Thank you! Your message has been sent successfully (demo mode).'
         })
         setFormData({ name: '', email: '', message: '' })
-      }, 800)
+      }, 700)
       return
     }
 
-    // Send using real EmailJS configuration
+    // Send with configured EmailJS service
     emailjs
       .send(
-        contactData.serviceId,
-        contactData.templateId,
+        emailjsConfig.serviceId,
+        emailjsConfig.templateId,
         formData,
-        contactData.publicKey
+        emailjsConfig.publicKey
       )
       .then(() => {
         setStatus({ state: 'success', message: 'Message sent successfully!' })
@@ -53,7 +53,7 @@ export default function Contact() {
         console.error('EmailJS error:', err)
         setStatus({
           state: 'error',
-          message: 'Failed to send message. Please reach out directly via email.'
+          message: 'Unable to send message right now. Please email directly.'
         })
       })
   }
@@ -67,10 +67,10 @@ export default function Contact() {
             Connect
           </span>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight mt-2 text-white">
-            {contactData.title}
+            Get In Touch
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-400">
-            {contactData.subtitle}
+            Have an open role, project inquiry, or just want to discuss software engineering? Let&apos;s connect!
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  placeholder="John Doe"
+                  placeholder="Enter your name"
                   className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:border-[#ff2a2a] transition-colors"
                 />
               </div>
@@ -115,7 +115,7 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="john@example.com"
+                  placeholder="name@example.com"
                   className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:border-[#ff2a2a] transition-colors"
                 />
               </div>
@@ -135,12 +135,12 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                placeholder="Write your message here..."
+                placeholder="How can I help you?"
                 className="w-full px-4 py-3 rounded-xl bg-neutral-900 border border-neutral-800 text-white placeholder-neutral-500 focus:outline-none focus:border-[#ff2a2a] transition-colors resize-none"
               />
             </div>
 
-            {/* Status Message */}
+            {/* Status Feedback */}
             {status.message && (
               <div
                 className={`p-3 rounded-lg text-sm font-medium ${
@@ -164,18 +164,19 @@ export default function Contact() {
             </button>
           </form>
 
-          {/* Direct Email fallback */}
+          {/* Contact Details Quick Strip */}
           <div className="mt-8 pt-8 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-400 gap-4">
             <div>
-              Direct email:{' '}
+              Email:{' '}
               <a
-                href={`mailto:${contactData.email}`}
+                href={`mailto:${personalInfo.emails.primary}`}
                 className="text-white hover:text-[#ff2a2a] transition-colors underline"
               >
-                {contactData.email}
+                {personalInfo.emails.primary}
               </a>
             </div>
-            <div>{contactData.location}</div>
+            <div>Phone: {personalInfo.phone}</div>
+            <div>{personalInfo.location}</div>
           </div>
         </div>
       </div>

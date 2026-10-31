@@ -1,4 +1,4 @@
-import { skillsData } from '../data/portfolioData'
+import { technicalSkills, softSkillsList } from '../data/portfolioData'
 
 export default function Skills() {
   return (
@@ -10,47 +10,68 @@ export default function Skills() {
             Capabilities
           </span>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight mt-2 text-white">
-            Skills &amp; Expertise
+            Technical &amp; Professional Skills
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-400">
-            A comprehensive overview of modern technologies and tools I utilize in daily development.
+            A comprehensive overview of programming languages, frameworks, databases, and developer tools in my stack.
           </p>
         </div>
 
-        {/* Skill Category Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {skillsData.map((category, catIdx) => (
+        {/* Technical Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {technicalSkills.categories.map((category, catIdx) => (
             <div
-              key={category.category}
+              key={category.title}
               data-aos="fade-up"
-              data-aos-delay={catIdx * 150}
-              className="bg-black/60 rounded-2xl p-6 sm:p-8 border border-neutral-800 hover:border-[#ff2a2a]/50 transition duration-300 flex flex-col justify-between group shadow-lg"
+              data-aos-delay={catIdx * 100}
+              className="bg-black/60 rounded-2xl p-6 border border-neutral-800 hover:border-[#ff2a2a]/50 transition duration-300 flex flex-col justify-between group shadow-lg"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#ff2a2a] mb-6 group-hover:scale-110 transition-transform">
-                  <span className="font-bold text-lg">0{catIdx + 1}</span>
+                <div className="w-10 h-10 rounded-xl bg-neutral-900 border border-neutral-800 flex items-center justify-center text-[#ff2a2a] mb-5 group-hover:scale-110 transition-transform font-bold text-sm">
+                  0{catIdx + 1}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-6">
-                  {category.category}
+                <h3 className="text-lg font-bold text-white mb-4">
+                  {category.title}
                 </h3>
-                <ul className="space-y-4">
+                <ul className="space-y-2.5">
                   {category.skills.map((skill) => (
                     <li
                       key={skill.name}
-                      className="flex items-center justify-between py-2 border-b border-neutral-900 last:border-0"
+                      className="text-sm text-neutral-300 flex items-center gap-2"
                     >
-                      <span className="text-sm font-medium text-neutral-300">
-                        {skill.name}
-                      </span>
-                      <span className="text-xs px-2.5 py-1 rounded-full bg-neutral-900 text-[#ff2a2a] border border-neutral-800 font-semibold">
-                        {skill.level}
-                      </span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#ff2a2a]" />
+                      <span>{skill.name}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Soft Skills Section */}
+        <div className="pt-8 border-t border-neutral-900" data-aos="fade-up">
+          <h3 className="text-center text-xl font-bold text-white mb-8">
+            Professional &amp; Soft Skills
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {softSkillsList.map((skill, sIdx) => (
+              <div
+                key={skill.name}
+                data-aos="fade-up"
+                data-aos-delay={sIdx * 100}
+                className="p-5 rounded-xl bg-neutral-950 border border-neutral-800 hover:border-neutral-700 transition-colors"
+              >
+                <div className="text-2xl mb-2">{skill.icon}</div>
+                <h4 className="font-bold text-white text-base mb-1.5">
+                  {skill.name}
+                </h4>
+                <p className="text-xs text-neutral-400 leading-relaxed">
+                  {skill.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

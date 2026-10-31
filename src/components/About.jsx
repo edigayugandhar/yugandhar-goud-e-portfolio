@@ -1,5 +1,5 @@
 import profileImg from '../assets/about/profile.png'
-import { aboutData, academy } from '../data/portfolioData'
+import { aboutContent, education, academy } from '../data/portfolioData'
 
 export default function About() {
   return (
@@ -8,13 +8,13 @@ export default function About() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
           <span className="text-xs font-bold uppercase tracking-wider text-[#ff2a2a]">
-            Discover
+            Background
           </span>
           <h2 className="text-3xl sm:text-5xl font-black tracking-tight mt-2 text-black">
-            {aboutData.title}
+            {aboutContent.heading}
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-600">
-            {aboutData.subtitle}
+            A look into my journey, education, and technical foundation.
           </p>
         </div>
 
@@ -39,20 +39,60 @@ export default function About() {
 
           {/* Bio Text & Highlights */}
           <div className="lg:col-span-7 space-y-6" data-aos="fade-left">
-            {aboutData.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-neutral-700 text-base sm:text-lg leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+            {/* Formatted Bio HTML */}
+            <div
+              className="text-neutral-700 text-base sm:text-lg leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: aboutContent.bio }}
+            />
 
-            {/* TAP Academy Training Badge */}
+            {/* Tech Stack Chips */}
+            <div>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-3">
+                Core Stack Highlights
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {aboutContent.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-800 text-xs font-semibold"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Education Card */}
+            <div className="p-5 rounded-2xl bg-neutral-50 border border-neutral-200">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-[#ff2a2a]/10 flex items-center justify-center text-[#ff2a2a] font-bold shrink-0">
+                  🎓
+                </div>
+                <div>
+                  <h4 className="font-bold text-neutral-900 text-base">
+                    {education.degree}
+                  </h4>
+                  <p className="text-sm text-neutral-600 mt-0.5">
+                    {education.institution}
+                  </p>
+                  <p className="text-xs text-neutral-500 mt-1">
+                    Graduation: {education.graduation}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* TAP Academy Training Card */}
             <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[#ff2a2a]/10 flex items-center justify-center text-[#ff2a2a] font-bold text-lg">
+                <div className="w-9 h-9 rounded-lg bg-[#ff2a2a]/10 flex items-center justify-center text-[#ff2a2a] font-bold text-xs">
                   TAP
                 </div>
                 <div>
-                  <h4 className="font-semibold text-neutral-900 text-sm">
+                  <p className="text-xs text-neutral-500">
+                    Placement Training Partner
+                  </p>
+                  <h5 className="font-semibold text-neutral-900 text-sm">
                     Trained at{' '}
                     <a
                       href={academy.url}
@@ -62,26 +102,9 @@ export default function About() {
                     >
                       {academy.name}
                     </a>
-                  </h4>
-                  <p className="text-xs text-neutral-500 mt-0.5">
-                    {academy.description}
-                  </p>
+                  </h5>
                 </div>
               </div>
-            </div>
-
-            {/* Quick Stats Grid */}
-            <div className="grid grid-cols-3 gap-4 pt-4 border-t border-neutral-200">
-              {aboutData.stats.map((stat, idx) => (
-                <div key={idx} className="text-left">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-[#ff2a2a]">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs sm:text-sm font-medium text-neutral-600 mt-1">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>

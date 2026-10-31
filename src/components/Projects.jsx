@@ -1,4 +1,4 @@
-import { projectsData } from '../data/portfolioData'
+import { projects } from '../data/portfolioData'
 
 export default function Projects() {
   return (
@@ -13,29 +13,38 @@ export default function Projects() {
             Featured Projects
           </h2>
           <p className="mt-4 text-base sm:text-lg text-neutral-600">
-            Selected applications and experiments reflecting full-stack and modern frontend craftsmanship.
+            Real-world full-stack and backend systems built with Java, Servlets, REST APIs, and relational databases.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsData.map((project, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {projects.map((project, idx) => (
             <div
               key={project.id}
               data-aos="fade-up"
               data-aos-delay={idx * 150}
-              className="flex flex-col justify-between rounded-2xl bg-neutral-50 border border-neutral-200 hover:border-[#ff2a2a]/60 hover:shadow-xl transition-all duration-300 p-6 sm:p-8 group"
+              className={`flex flex-col justify-between rounded-2xl bg-neutral-50 border transition-all duration-300 p-6 sm:p-8 group shadow-sm hover:shadow-xl ${
+                project.isFlagship
+                  ? 'border-[#ff2a2a]/40 ring-1 ring-[#ff2a2a]/20'
+                  : 'border-neutral-200 hover:border-[#ff2a2a]/60'
+              }`}
             >
               <div>
-                {/* Project Badge */}
+                {/* Badge Header */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#ff2a2a]">
-                    Project 0{project.id}
+                  <span className="text-xs font-bold uppercase tracking-wider text-neutral-400">
+                    Project {project.number}
                   </span>
+                  {project.badge && (
+                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#ff2a2a]/10 text-[#ff2a2a] border border-[#ff2a2a]/20">
+                      {project.badge}
+                    </span>
+                  )}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-[#ff2a2a] transition-colors">
+                <h3 className="text-2xl font-bold text-neutral-900 mb-3 group-hover:text-[#ff2a2a] transition-colors">
                   {project.title}
                 </h3>
 
@@ -46,10 +55,10 @@ export default function Projects() {
 
                 {/* Tech Stack Tags */}
                 <div className="flex flex-wrap gap-2 mb-8">
-                  {project.tags.map((tag) => (
+                  {project.techTags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2.5 py-1 rounded-md bg-neutral-200/70 text-neutral-800 font-medium"
+                      className="text-xs px-2.5 py-1 rounded-md bg-neutral-200/80 text-neutral-800 font-medium"
                     >
                       {tag}
                     </span>
@@ -58,23 +67,29 @@ export default function Projects() {
               </div>
 
               {/* Action Links */}
-              <div className="flex items-center gap-4 pt-4 border-t border-neutral-200">
+              <div className="flex items-center justify-between pt-5 border-t border-neutral-200">
                 <a
-                  href={project.liveUrl}
+                  href={project.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center text-sm font-semibold text-[#ff2a2a] hover:underline"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-neutral-900 hover:text-[#ff2a2a] transition-colors"
                 >
-                  Live Demo &rarr;
+                  GitHub Repository &rarr;
                 </a>
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-sm font-semibold text-neutral-700 hover:text-black transition-colors"
-                >
-                  Source Code
-                </a>
+                {project.links.demo ? (
+                  <a
+                    href={project.links.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-bold px-3 py-1.5 rounded-full bg-[#ff2a2a] text-white hover:bg-[#e02424] transition-colors"
+                  >
+                    Live Demo
+                  </a>
+                ) : (
+                  <span className="text-xs text-neutral-400 font-medium">
+                    Demo Coming Soon
+                  </span>
+                )}
               </div>
             </div>
           ))}
