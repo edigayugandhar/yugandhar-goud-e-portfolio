@@ -180,10 +180,10 @@ export default function About() {
 
                     {/* Bottom: QR Code + Scan caption */}
                     <div className="pt-2 flex items-center gap-3">
-                      <div className="bg-white rounded-lg p-1.5 shrink-0 shadow-sm">
+                      <div className="bg-white rounded-lg p-2 shrink-0 shadow-sm">
                         <QRCode
-                          value={socialLinks.linkedin || (`mailto:${personalInfo.emails.primary}`)}
-                          size={70}
+                          value={socialLinks.linkedin || ('mailto:' + personalInfo.emails.primary)}
+                          size={76}
                         />
                       </div>
                       <p className="text-[10px] text-white/60 leading-tight">
