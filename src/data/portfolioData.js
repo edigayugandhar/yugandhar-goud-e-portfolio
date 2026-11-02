@@ -39,7 +39,7 @@ export const heroContent = {
 export const aboutContent = {
   heading: "Hello!",
   // HTML is allowed here (it is rendered with dangerouslySetInnerHTML)
-  bio: `Hi, my name is <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Yugandhar Goud Ediga</span>, an aspiring Java Full Stack Developer based in Andhra Pradesh. I have hands-on experience developing web applications using Java, SQL, HTML, CSS, JavaScript, React, and relational database technologies through active learning and project development. My goal is to build scalable, practical web applications, solve challenging engineering problems, and deliver impactful solutions as part of a development team.`,
+  bio: `Hi, I'm <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">YUGANDHAR GOUD EDIGA</span>, a Java Full Stack Developer with a strong foundation in Java, SQL, HTML, CSS, JavaScript, and React. I have hands-on experience building web applications through practical projects. I enjoy solving problems, writing clean code, and developing user-friendly applications. My goal is to grow as a software engineer and contribute to building impactful technology solutions.`,
   techStack: ["Java", "Spring Boot", "SQL", "JDBC", "React", "JavaScript", "MySQL"],
 };
 
