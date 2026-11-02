@@ -37,64 +37,108 @@ export default function About() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
 
         {/* ── Left: ID badge on a lanyard ── */}
-        <div className="md:w-[350px] shrink-0 flex flex-col items-center">
+        <div className="w-full md:w-[380px] shrink-0 flex flex-col items-center">
           <motion.div
-            className="relative flex flex-col items-center pt-32"
+            className="relative flex flex-col items-center pt-28"
             initial={{ y: -300, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ type: 'spring', stiffness: 110, damping: 9, mass: 1.1 }}
           >
-            {/* Lanyard string */}
-            <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-3 h-40 bg-black rounded-b-sm" />
+            {/* Lanyard strap — runs continuously all the way off the top of the section */}
+            <div
+              className="absolute left-1/2 -translate-x-1/2 w-5 bg-gradient-to-r from-neutral-900 via-neutral-800 to-black shadow-xl flex justify-center z-0"
+              style={{ top: '-300px', height: '420px' }}
+            >
+              {/* Inner stitch accent */}
+              <div className="w-0.5 h-full bg-red-600/70" />
+            </div>
 
-            {/* Clip rectangle */}
-            <div className="w-10 h-4 bg-gray-400 rounded-sm shadow-md z-10 -mb-1" />
+            {/* Metal Swivel Clasp & Clip attached directly to card */}
+            <div className="relative z-20 flex flex-col items-center -mb-2.5">
+              {/* Top loop */}
+              <div className="w-7 h-3 bg-gradient-to-b from-gray-200 via-gray-100 to-gray-400 rounded-sm shadow-md" />
+              {/* Hook */}
+              <div className="w-2.5 h-4 bg-gradient-to-b from-gray-400 to-gray-600 rounded-b shadow-inner" />
+              {/* Metal clamp holding badge slot */}
+              <div className="w-12 h-3.5 bg-neutral-800 border border-neutral-600 rounded-sm shadow-md -mt-1" />
+            </div>
 
             {/* Flip Card Button Wrapper */}
             <button
               type="button"
               aria-label="Flip ID card"
               onClick={() => setFlipped(!flipped)}
-              className="relative w-full max-w-[280px] -rotate-3 hover:rotate-0 transition-transform duration-500 [perspective:1200px] focus:outline-none cursor-pointer"
+              className="relative w-[320px] sm:w-[350px] min-h-[500px] sm:min-h-[520px] -rotate-2 hover:rotate-0 transition-transform duration-500 [perspective:1200px] focus:outline-none cursor-pointer group"
             >
               <div
-                className="relative w-full aspect-[3/4] transition-transform duration-700 [transform-style:preserve-3d]"
+                className="relative w-full h-[500px] sm:h-[520px] transition-transform duration-700 [transform-style:preserve-3d]"
                 style={{
                   transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
                 }}
               >
                 {/* ── FRONT FACE: ID Badge ── */}
                 <div className="absolute inset-0 [backface-visibility:hidden]">
-                  <div className="bg-gray-900 w-full h-full rounded-2xl p-3 shadow-2xl flex flex-col overflow-hidden">
+                  <div className="bg-gradient-to-b from-gray-950 via-gray-900 to-black w-full h-full rounded-2xl p-4 shadow-2xl flex flex-col justify-between overflow-hidden border border-white/10">
                     {/* Cutout slot at the top */}
-                    <div className="flex justify-center mb-2.5">
-                      <div className="w-12 h-1.5 bg-gray-700 rounded-full" />
+                    <div className="flex flex-col items-center pt-1">
+                      <div className="w-14 h-2 bg-gray-700/80 rounded-full mb-1" />
+                      <span className="text-[9px] uppercase tracking-[0.25em] text-neutral-400 font-bold">
+                        Developer ID Pass
+                      </span>
                     </div>
 
                     {/* Portrait photo */}
-                    <img
-                      src={stackImage}
-                      alt={`${personalInfo.name} — illustrated portrait`}
-                      className="w-full flex-1 rounded-xl object-cover object-top"
-                    />
+                    <div className="flex-1 my-2.5 overflow-hidden rounded-xl bg-neutral-800 border border-white/5 flex items-center justify-center">
+                      <img
+                        src={stackImage}
+                        alt={`${personalInfo.name} — illustrated portrait`}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+
+                    {/* Badge footer info */}
+                    <div className="pt-2 border-t border-white/10 flex items-center justify-between text-left">
+                      <div>
+                        <p className="text-sm font-black text-white tracking-tight uppercase leading-none">
+                          {personalInfo.name}
+                        </p>
+                        <p className="text-[11px] font-semibold text-red-400 uppercase tracking-wider mt-1">
+                          {personalInfo.title}
+                        </p>
+                      </div>
+                      <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] text-white/80 font-medium">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        Verified
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* ── BACK FACE: Visiting Card ── */}
                 <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] text-left">
-                  <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#141414] to-[#1f1f1f] shadow-2xl p-5 text-white flex flex-col justify-between overflow-hidden border border-white/5">
+                  <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#121212] via-[#1a1a1a] to-[#222222] shadow-2xl p-5 sm:p-6 text-white flex flex-col justify-between border border-white/10 overflow-hidden">
                     {/* 6px red bar across the top */}
                     <div className="absolute top-0 left-0 right-0 h-[6px] bg-[#ff2a2a] rounded-t-2xl" />
 
-                    {/* Header: Brand Name + Title */}
-                    <div className="pt-1">
-                      <h3 className="text-xl font-black tracking-tight text-white flex items-center">
+                    {/* Header */}
+                    <div>
+                      <div className="flex items-center justify-between pt-1">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-neutral-400">
+                          Professional Pass
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] text-emerald-400 font-semibold">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          Available
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl sm:text-2xl font-black tracking-tight text-white mt-2 flex items-center">
                         {personalInfo.brandName}
                         <span className="text-[#ff2a2a] ml-0.5">.</span>
                       </h3>
                       {personalInfo.title && (
-                        <p className="text-xs uppercase tracking-widest text-red-400 font-semibold mt-0.5">
+                        <p className="text-xs uppercase tracking-wider text-red-400 font-bold mt-0.5">
                           {personalInfo.title}
                         </p>
                       )}
@@ -102,7 +146,7 @@ export default function About() {
                     </div>
 
                     {/* Details rows with icons */}
-                    <div className="space-y-2 text-xs text-white/85">
+                    <div className="space-y-2.5 text-xs text-white/90">
                       {personalInfo.emails?.primary && (
                         <div className="flex items-center gap-2.5">
                           <svg className="w-4 h-4 text-red-400 shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
@@ -111,7 +155,7 @@ export default function About() {
                           <a
                             href={`mailto:${personalInfo.emails.primary}`}
                             onClick={(e) => e.stopPropagation()}
-                            className="hover:text-red-300 transition-colors truncate"
+                            className="hover:text-red-300 transition-colors truncate font-mono text-[11px]"
                           >
                             {personalInfo.emails.primary}
                           </a>
@@ -126,7 +170,7 @@ export default function About() {
                           <a
                             href={`tel:${personalInfo.phone}`}
                             onClick={(e) => e.stopPropagation()}
-                            className="hover:text-red-300 transition-colors"
+                            className="hover:text-red-300 transition-colors font-mono text-[11px]"
                           >
                             {personalInfo.phone}
                           </a>
@@ -153,9 +197,9 @@ export default function About() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="hover:text-red-300 transition-colors"
+                            className="hover:text-red-300 transition-colors truncate"
                           >
-                            LinkedIn
+                            LinkedIn Profile
                           </a>
                         </div>
                       )}
@@ -170,25 +214,28 @@ export default function About() {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="hover:text-red-300 transition-colors"
+                            className="hover:text-red-300 transition-colors truncate"
                           >
-                            GitHub
+                            GitHub Profile
                           </a>
                         </div>
                       )}
                     </div>
 
                     {/* Bottom: QR Code + Scan caption */}
-                    <div className="pt-2 flex items-center gap-3">
-                      <div className="bg-white rounded-lg p-2 shrink-0 shadow-sm">
+                    <div className="pt-3 border-t border-white/10 flex items-center gap-3">
+                      <div className="bg-white rounded-xl p-2 shrink-0 shadow-lg">
                         <QRCode
                           value={socialLinks.linkedin || ('mailto:' + personalInfo.emails.primary)}
-                          size={76}
+                          size={74}
                         />
                       </div>
-                      <p className="text-[10px] text-white/60 leading-tight">
-                        Scan to connect
-                      </p>
+                      <div>
+                        <p className="text-xs font-bold text-white">Scan to Connect</p>
+                        <p className="text-[10px] text-white/60 leading-snug mt-0.5">
+                          Point your phone camera to connect directly
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
