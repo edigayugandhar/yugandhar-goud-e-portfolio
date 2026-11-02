@@ -1,8 +1,5 @@
 import { useState, useEffect } from 'react'
-import { personalInfo } from '../data/portfolioData'
-
-// Navigation links — each becomes an anchor: #home, #about, etc.
-const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Contact']
+import { personalInfo, navLinks } from '../data/portfolioData'
 
 // Pre-built mailto so the "Hire Me" button opens a pre-filled email
 const hireMeMailto =
@@ -40,7 +37,7 @@ export default function Navbar() {
 
         {/* ── Logo ── */}
         <a
-          href="#"
+          href="#home"
           className="text-2xl font-black text-white tracking-tight flex items-center gap-0.5"
         >
           {personalInfo.brandName}
@@ -49,17 +46,21 @@ export default function Navbar() {
 
         {/* ── Desktop centre links ── */}
         <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              className="group relative text-white/80 hover:text-white font-medium transition-colors"
-            >
-              {link}
-              {/* Animated underline */}
-              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-red-500 transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
+          {navLinks.map((item) => {
+            const name = typeof item === 'string' ? item : item.name
+            const href = typeof item === 'string' ? `#${item.toLowerCase()}` : item.href
+            return (
+              <a
+                key={name}
+                href={href}
+                className="group relative text-white/80 hover:text-white font-medium transition-colors"
+              >
+                {name}
+                {/* Animated underline */}
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-red-500 transition-all duration-300 group-hover:w-full" />
+              </a>
+            )
+          })}
         </div>
 
         {/* ── Desktop "Hire Me" pill ── */}
@@ -105,16 +106,20 @@ export default function Navbar() {
         `}
       >
         <div className="px-6 py-4 space-y-1">
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              onClick={() => setIsOpen(false)}
-              className="block py-3 border-b border-white/20 last:border-0 text-white font-bold text-lg hover:text-black transition-colors"
-            >
-              {link}
-            </a>
-          ))}
+          {navLinks.map((item) => {
+            const name = typeof item === 'string' ? item : item.name
+            const href = typeof item === 'string' ? `#${item.toLowerCase()}` : item.href
+            return (
+              <a
+                key={name}
+                href={href}
+                onClick={() => setIsOpen(false)}
+                className="block py-3 border-b border-white/20 last:border-0 text-white font-bold text-lg hover:text-black transition-colors"
+              >
+                {name}
+              </a>
+            )
+          })}
 
           {/* Full-width Hire Me button */}
           <a

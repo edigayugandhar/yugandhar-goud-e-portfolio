@@ -75,7 +75,7 @@ export default function About() {
                     {/* Portrait photo */}
                     <img
                       src={stackImage}
-                      alt={`${aboutContent.heading} — illustrated portrait`}
+                      alt={`${personalInfo.name} — illustrated portrait`}
                       className="w-full flex-1 rounded-xl object-cover object-top"
                     />
                   </div>
