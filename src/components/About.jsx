@@ -92,7 +92,7 @@ export default function About() {
                     <div className="flex-1 my-2 overflow-hidden rounded-xl bg-neutral-800 border border-white/5 flex items-center justify-center">
                       <img
                         src={stackImage}
-                        alt={`${personalInfo.name} — illustrated portrait`}
+                        alt="Yugandhar Goud E — Java Full Stack Developer"
                         className="w-full h-full object-cover object-top"
                       />
                     </div>
