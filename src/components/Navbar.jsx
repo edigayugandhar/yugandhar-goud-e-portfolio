@@ -21,11 +21,11 @@ export default function Navbar() {
   }, [])
 
   // Derive nav background from state
-  // Priority: mobile menu open → solid red; otherwise transparent with padding change
+  // Glass view when scrolled so content and letters behind remain visible
   const navBg = isOpen
-    ? 'bg-[#ff2a2a] py-4'
+    ? 'bg-[#ff2a2a] py-4 shadow-xl'
     : isScrolled
-    ? 'bg-black/70 backdrop-blur-md py-4'
+    ? 'bg-black/20 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.15)] py-3.5'
     : 'bg-transparent py-6'
 
   return (
@@ -53,11 +53,11 @@ export default function Navbar() {
               <a
                 key={name}
                 href={href}
-                className="group relative text-white/80 hover:text-white font-medium transition-colors"
+                className="group relative text-white/90 hover:text-white font-semibold transition-colors drop-shadow-sm tracking-wide text-sm"
               >
                 {name}
                 {/* Animated underline */}
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-red-500 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-[#ff2a2a] transition-all duration-300 group-hover:w-full" />
               </a>
             )
           })}
