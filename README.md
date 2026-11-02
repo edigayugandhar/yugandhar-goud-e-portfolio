@@ -3,7 +3,7 @@
 A high-performance personal developer portfolio showcasing scalable Java backends, relational database schemas, and modern responsive React web applications.
 
 ## Live Site
-- **URL**: https://YOUR-SITE-URL/
+- **URL**: https://yugandhar-goud-portfolio.vercel.app/
 
 ## Tech Stack
 - **Frontend & Core**: React 19, JavaScript (JSX), HTML5, CSS3
