@@ -1,4 +1,4 @@
-import { personalInfo, socialLinks, footerContent, academy } from '../data/portfolioData'
+import { personalInfo, socialLinks, footerContent } from '../data/portfolioData'
 
 // Current year computed once at module level (avoids React purity lint warning)
 const year = new Date().getFullYear()
@@ -49,7 +49,7 @@ export default function Footer() {
       {/* ── BOTTOM ROW ── */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:items-end">
 
-        {/* Col 1 — Contact link + Copyright + TAP Academy */}
+        {/* Col 1 — Contact link + Copyright */}
         <div className="flex flex-col gap-2 uppercase">
           <a
             href="#contact"
@@ -58,17 +58,6 @@ export default function Footer() {
             Contact
           </a>
           <p className="text-white/60 normal-case">{footerContent.copyright}</p>
-          <p className="text-white/60 normal-case">
-            Trained at{' '}
-            <a
-              href={academy.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline underline-offset-4 decoration-white/30 hover:text-white hover:decoration-white transition-colors"
-            >
-              {academy.name}
-            </a>
-          </p>
         </div>
 
         {/* Col 2 — Email + Social Icons */}

@@ -14,14 +14,8 @@ export const personalInfo = {
     primary: "edigayugandhar8@gmail.com",
     secondary: "",
   },
-  summary: "Entry-level Software Engineer and aspiring Java Full Stack Developer with knowledge of Core Java, OOP, SQL, JDBC, MySQL, HTML, CSS, and JavaScript. Hands-on experience building web applications and implementing database operations, CRUD functionality, and application workflows.",
+  summary: "Aspiring Java Full Stack Developer with a strong foundation in Java, SQL, and frontend technologies. Hands-on experience developing practical web applications, implementing database operations, CRUD workflows, and responsive user experiences.",
   resumeUrl: "/Yugandhar.pdf", // PDF inside /public
-};
-
-// TAP Academy — the academy you trained with. Used in the footer credit.
-export const academy = {
-  name: "TAP Academy",
-  url: "https://thetapacademy.com/",
 };
 
 export const socialLinks = {
@@ -45,7 +39,7 @@ export const heroContent = {
 export const aboutContent = {
   heading: "Hello!",
   // HTML is allowed here (it is rendered with dangerouslySetInnerHTML)
-  bio: `Hi, my name is <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Yugandhar Goud Ediga</span>, an entry-level Software Engineer and aspiring Java Full Stack Developer based in Andhra Pradesh, sharpening my skills through the placement training program at TAP Academy. I have hands-on experience with Java, SQL, HTML, CSS, JavaScript, React, and database technologies through active learning and project development. My goal is to build scalable, practical web applications, grow through real-world software engineering, and deliver impactful solutions as part of a development team.`,
+  bio: `Hi, my name is <span class="text-black text-xl font-black mx-1 tracking-wide uppercase">Yugandhar Goud Ediga</span>, an aspiring Java Full Stack Developer based in Andhra Pradesh. I have hands-on experience developing web applications using Java, SQL, HTML, CSS, JavaScript, React, and relational database technologies through active learning and project development. My goal is to build scalable, practical web applications, solve challenging engineering problems, and deliver impactful solutions as part of a development team.`,
   techStack: ["Java", "Spring Boot", "SQL", "JDBC", "React", "JavaScript", "MySQL"],
 };
 

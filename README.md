@@ -1,5 +1,6 @@
-# My Portfolio
+# Yugandhar Goud Ediga — Developer Portfolio
 
-A modern developer portfolio built with React 19, Vite, and Tailwind CSS 4.
+A responsive, high-performance personal developer portfolio built with React 19, Vite, Tailwind CSS 4, and Framer Motion.
 
-Built during the placement training program at [TAP Academy](https://thetapacademy.com/) (full-stack development, AI and augmented reality training).
+## Overview
+Showcases practical Java Full Stack projects, web development engineering workflows, and core technical skills in Java, SQL, MySQL, Spring Boot, and React.
