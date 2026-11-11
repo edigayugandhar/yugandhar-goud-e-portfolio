@@ -194,9 +194,9 @@ export default function Hero() {
 
       </div>
 
-      {/* ── Play Reel control: absolutely pinned to bottom-right to cover watermark ── */}
+      {/* ── Play Reel control: positioned over watermark matching reference image ── */}
       <div
-        className="absolute bottom-5 right-4 md:bottom-7 md:right-6 z-30 flex flex-col items-center gap-1.5"
+        className="absolute bottom-10 right-8 md:bottom-[4.25rem] md:right-[5.75rem] z-30 flex flex-col items-center gap-1.5"
         data-aos="zoom-in"
         data-aos-delay="600"
       >
