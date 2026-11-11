@@ -192,43 +192,44 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ── Right: Play Reel control ── */}
-        <div
-          className="mt-10 md:mt-0 flex flex-col items-center gap-2"
-          data-aos="zoom-in"
-          data-aos-delay="600"
-        >
-          <button
-            type="button"
-            onClick={toggleVideo}
-            aria-label={isPlaying ? 'Pause video reel' : 'Play video reel'}
-            className={`
-              w-12 h-12 md:w-20 md:h-20 rounded-full
-              border border-white/30 bg-black/20 backdrop-blur-md
-              flex items-center justify-center
-              hover:scale-110 hover:bg-[#ff2a2a]
-              hover:shadow-[0_0_24px_rgba(255,42,42,0.7)]
-              transition-all duration-300
-            `}
-          >
-            {isPlaying ? (
-              /* Pause icon */
-              <svg className="w-5 h-5 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z" />
-              </svg>
-            ) : (
-              /* Play triangle */
-              <svg className="w-5 h-5 md:w-7 md:h-7 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M8 5v14l11-7L8 5z" />
-              </svg>
-            )}
-          </button>
+      </div>
 
-          {/* Label below the control */}
-          <span className="text-white text-[10px] uppercase tracking-widest font-medium">
-            {isPlaying ? 'Pause' : 'Play Reel'}
-          </span>
-        </div>
+      {/* ── Play Reel control: absolutely pinned to bottom-right to cover watermark ── */}
+      <div
+        className="absolute bottom-5 right-4 md:bottom-7 md:right-6 z-30 flex flex-col items-center gap-1.5"
+        data-aos="zoom-in"
+        data-aos-delay="600"
+      >
+        <button
+          type="button"
+          onClick={toggleVideo}
+          aria-label={isPlaying ? 'Pause video reel' : 'Play video reel'}
+          className={`
+            w-12 h-12 md:w-20 md:h-20 rounded-full
+            border border-white/30 bg-black/20 backdrop-blur-md
+            flex items-center justify-center
+            hover:scale-110 hover:bg-[#ff2a2a]
+            hover:shadow-[0_0_24px_rgba(255,42,42,0.7)]
+            transition-all duration-300
+          `}
+        >
+          {isPlaying ? (
+            /* Pause icon */
+            <svg className="w-5 h-5 md:w-7 md:h-7 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z" />
+            </svg>
+          ) : (
+            /* Play triangle */
+            <svg className="w-5 h-5 md:w-7 md:h-7 text-white translate-x-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 5v14l11-7L8 5z" />
+            </svg>
+          )}
+        </button>
+
+        {/* Label below the control */}
+        <span className="text-white text-[10px] uppercase tracking-widest font-medium">
+          {isPlaying ? 'Pause' : 'Play Reel'}
+        </span>
       </div>
 
       {/* ── Bottom-centre scroll indicator (desktop only) ── */}
